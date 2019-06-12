@@ -1,50 +1,38 @@
-const path = require('path');
-const fs = require('fs');
+#!/usr/bin/env node
 /*
- // verifica si es una absoluta y la convierte en absoluta
-const absoluta =(route )=>{
-  if (!path.isAbsolute(route))
-    return path.resolve(route); 
-}
-console.log(absoluta('README.md'))
-
- resolve permite convertir una ruta relativa en absoluta 
-export const convertPathToAbsolute =(file) =>{
-    return path.resolve(file);
-}
-
-export const verifyFile =(file) =>{
-    const stats = fs.statSync(file);
-    return stats.isFile();
-}
-
-export const verifyExtension =(file)=>{
-    if (path.extname(file)==='.md' ){
-        return path.extname(file)
-    } else {
-        console.log ('no es md')
-    }
-
-}
-
+//import  fetch from 'node-fetch';
+//import marked from 'marked';
 
 console.log(`Current directory: ${process.cwd()}`);
 path.join(`Current directory: ${process.cwd()}`);
 // promise y file
-*/
- 
- const pathFiles = (route) => {
-  let pathArray = [];
-  if (fs.lstatSync(route).isFile()) {
-    if (path.extname(route) === '.md') {
-      pathArray.push(route);
-    }
-  } else {
-    fs.readdirSync(route).forEach((file) => {
-      pathArray = pathArray.concat(pathFiles(path.join(route, file)));
+
+const mdLinks = require("md-links");
+
+mdLinks("./some/example.md")
+  .then(links => {
+    // => [{ href, text, file }]
+  })
+  .catch(console.error);
+
+mdLinks("./some/example.md", { validate: true })
+  .then(links => {
+    // => [{ href, text, file, status, ok }]
+  })
+  .catch(console.error);
+
+mdLinks("./some/dir")
+  .then(links => {
+    // => [{ href, text, file }]
+  })
+  .catch(console.error);
+
+fetch('https://github.com/lizñañaña')
+    .then(res => {
+        console.log(res.ok);
+        console.log(res.status);
+        console.log(res.statusText);
+   
     });
-  } 
-  console.log(pathArray)
-  return pathArray;
-  
-};
+
+    */

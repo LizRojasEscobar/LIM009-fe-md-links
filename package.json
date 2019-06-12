@@ -4,7 +4,6 @@
   "description": "md-links",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node src/index.js",
     "test": "jest --coverage",
     "build": "babel src -d lib"
   },
@@ -22,12 +21,18 @@
     "@babel/cli": "^7.4.4",
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
+    "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "eslint": "^5.16.0",
     "jest": "^24.8.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/marked": "^0.6.5",
+    "@types/node-fetch": "^2.3.5",
+    "marked": "^0.6.2",
+    "node-fetch": "^2.6.0"
+  },
   "bin": {
-    "md-links": "./index.js"
+    "md-links": "./lib/index.js"
   }
 }

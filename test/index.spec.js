@@ -1,25 +1,21 @@
-import {absoluta, convertPathToAbsolute,verifyFile,verifyExtension} from '../index.js'
-describe('Deberia retornar que el path sea absoluto',() =>{
-  it ('deberia ser una funcion', ()=>{
-    expect(typeof absoluta).toEqual('function');
-    })
-  it ('Deberia de recibir string y retornar boolean', ()=>{
-  expect(absoluta('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe(true);
-  })
-  it ('Deberia de recibir string y retornar boolean', ()=>{
-    expect(absoluta('README.md')).toBe(false);
-    })
-});
+
+  import {
+    convertToAbsolute,
+    verifyExtension} 
+  from '../src/path-controller.js'
+   import{
+    verifyFile
+   }from '../src/file-controller.js'
 
 describe('Deberia retornar que el path sea absoluto',() =>{
   it ('deberia ser una funcion', ()=>{
-    expect(typeof convertPathToAbsolute).toEqual('function');
+    expect(typeof convertToAbsolute).toEqual('function');
     })
   it ('Deberia de recibir path relativo y retornar string', ()=>{
-  expect(convertPathToAbsolute('README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
+  expect(convertToAbsolute('README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
   })
-  it ('Deberia de recibir path relativo y retornar string(path absoluto)', ()=>{
-    expect(convertPathToAbsolute('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
+  it ('Deberia de recibir path relativo y retornar string', ()=>{
+    expect(convertToAbsolute('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
     })
 });
 

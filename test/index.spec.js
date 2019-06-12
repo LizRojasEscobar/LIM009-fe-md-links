@@ -2,10 +2,13 @@
   import {
     convertToAbsolute,
     verifyExtension} 
-  from '../src/path-controller.js'
+  from '../src/path-controller.js';
    import{
     verifyFile
-   }from '../src/file-controller.js'
+   }from '../src/file-controller.js';
+  import{
+    pathFilesAndDirectories
+  } from '../src/directory-controller.js'
 
 describe('Deberia retornar que el path sea absoluto',() =>{
   it ('deberia ser una funcion', ()=>{
@@ -15,7 +18,7 @@ describe('Deberia retornar que el path sea absoluto',() =>{
   expect(convertToAbsolute('README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
   })
   it ('Deberia de recibir path relativo y retornar string', ()=>{
-    expect(convertToAbsolute('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
+    expect(convertToAbsolute('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe(true);
     })
 });
 
@@ -40,6 +43,12 @@ describe('Deberia verificar si es un archivo es extension md',() =>{
   it ('Deberia de recibir path absoluto y retornar booleano', ()=>{
     expect(verifyExtension('/home/liz/Documentos/md.links/LIM009-fe-md-links/')).toBe(undefined);
     })
+});
+describe('Deberia recorrer un directorio',() =>{
+  it ('deberia ser una funcion', ()=>{
+    expect(typeof pathFilesAndDirectories).toEqual('function');
+    })
+
 });
 
 

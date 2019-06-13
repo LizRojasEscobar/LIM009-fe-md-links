@@ -18,9 +18,9 @@ export const pathFilesAndDirectories = route => {
   }
   return arrayOfPath;
 };
-console.log(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib'));
+//  console.log(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib'));
 
-/*
+
 export const readFileInside = route => {
   let arrayContent = [];
   pathFilesAndDirectories(route).forEach(file => {
@@ -32,4 +32,4 @@ export const readFileInside = route => {
 
   return arrayContent;
 };
-*/
+//  console.log(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));

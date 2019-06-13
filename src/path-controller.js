@@ -12,9 +12,7 @@ export const convertToAbsolute = route => {
 };
 
 export const verifyExtension = file => {
-  if (path.extname(`${file}`) === ".md") {
-    return path.extname(`${file}`);
-  }
+  return path.extname(`${file}`) === ".md"   
 };
 
-// console.log(convertToAbsolute("/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md"));
+//console.log(verifyExtension("/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md"));

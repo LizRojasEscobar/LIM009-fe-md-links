@@ -38,17 +38,22 @@ describe('Deberia verificar si es un archivo es extension md',() =>{
     expect(typeof verifyExtension).toEqual('function');
     })
   it ('Deberia de recibir path absoluto y retornar booleano', ()=>{
-    expect(verifyExtension('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe(".md");
+    expect(verifyExtension('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe(true);
   })
   it ('Deberia de recibir path absoluto y retornar booleano', ()=>{
-    expect(verifyExtension('/home/liz/Documentos/md.links/LIM009-fe-md-links/')).toBe(undefined);
+    expect(verifyExtension('/home/liz/Documentos/md.links/LIM009-fe-md-links/')).toBe(false);
     })
 });
 describe('Deberia recorrer un directorio',() =>{
   it ('deberia ser una funcion', ()=>{
     expect(typeof pathFilesAndDirectories).toEqual('function');
     })
-
+    it ('deberia de retornar un array con los archivos .md', ()=>{
+      expect(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba')).toEqual(["/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md", "/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md"]);
+    })
+    it ('deberia ser una funcion', ()=>{
+      expect(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib')).toEqual([]);
+    })
 });
 
 

@@ -4,3 +4,4 @@ export const verifyFile =(file) =>{
     const stats = fs.statSync(`${file}`);
     return stats.isFile();
 }
+

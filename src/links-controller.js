@@ -3,12 +3,12 @@ import marked from "marked";
 import  fetch from 'node-fetch';
 
 
-const markdownLinkExtractor = route => {
-  var links = [];
+export const markdownLinkExtractor = route => {
+  let arrayWithlinks = [];
   readFileInside(route).forEach(element => {
-    var renderer = new marked.Renderer();
+    let renderer = new marked.Renderer();
     renderer.link = (href, title, text) => {
-      links.push({
+      arrayWithlinks.push({
         href: href,
         text: text,
         file: element.file
@@ -18,15 +18,23 @@ const markdownLinkExtractor = route => {
     marked(element.content, { renderer: renderer });
     
   });
-  return links;
+  return arrayWithlinks;
 };
 
-const getStatusOfLInk = (array)=>{
+//console.log(markdownLinkExtractor('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));
+
+
+
+export const getStatusOfLInk = (array)=>{
   const responsePromises = array.map(obj =>{
   return  fetch(obj.href)
     .then ((result)=>{
          obj.status =result.status;
-         obj.ok=result.statusText;
+         if (result.ok){
+          obj.ok ='ok';
+         }else{
+          obj.ok = 'fail';
+         }
       return obj
     })
     
@@ -38,5 +46,27 @@ return Promise.all(responsePromises);
 getStatusOfLInk(markdownLinkExtractor("/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md"))
 .then ((result)=>{
   console.log(result);
-})
+ })
 
+
+/*
+export const getStatusOfLinks = (arrayOfObj) => {
+  const arrayOfUrls = arrayOfObj.map(element =>{
+    return element.href;
+    })
+  const uniqueUrls = new Set(arrayOfUrls);  
+  const brokenUrls = arrayOfObj.filter( element => {
+    return element.ok === 'fail';
+  })
+  
+  return {
+    Total: arrayOfUrls.length,
+    Unique: uniqueUrls.size,
+    Broken: brokenUrls.length
+  }
+}
+
+
+
+
+*/

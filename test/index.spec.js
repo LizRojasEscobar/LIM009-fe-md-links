@@ -10,6 +10,9 @@
     pathFilesAndDirectories,
     readFileInside
   } from '../src/directory-controller.js'
+  import{
+    markdownLinkExtractor
+  } from '../src/links-controller.js'
 
 describe('Deberia retornar que el path sea absoluto',() =>{
   it ('deberia ser una funcion', ()=>{
@@ -19,7 +22,7 @@ describe('Deberia retornar que el path sea absoluto',() =>{
   expect(convertToAbsolute('README.md')).toBe('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md');
   })
   it ('Deberia de recibir path relativo y retornar string', ()=>{
-    expect(convertToAbsolute('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe(true);
+    expect(convertToAbsolute('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md')).toBe("/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md");
     })
 });
 
@@ -74,3 +77,30 @@ describe('Deberia recorrer dentro del archivo',() =>{
       expect(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib')).toEqual([]);
     })
 });
+
+describe ('deberia de ingresar a los archivos y extraer los links',()=>{
+  it ('deberia de ser una funcion', ()=>{
+    expect(typeof (markdownLinkExtractor)).toEqual('function');
+  })
+  it('qwedrftgyuiasdfghjklñlkjhgfdsdfghjokjhg',()=>{
+    expect(markdownLinkExtractor('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba')).toEqual(
+  [ { href: 'https://nodejs.org/es/',
+    text: 'Node.js',
+    file:
+     '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' },
+  { href: 'https://developers.google.com/v8/',
+    text: 'motor de JavaScript V8 de Chrome',
+    file:
+     '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' },
+  { href: 'https://es.wikipedia.org/wiki/Markdown',
+    text: 'Markdown',
+    file:
+     '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md' } ])
+  })
+})
+
+describe ('deberia recibir una array de objetos', ()=>{
+  it('deberia de ser una funcion',()=>{
+
+  })
+})

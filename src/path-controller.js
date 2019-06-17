@@ -6,13 +6,14 @@ export const convertToAbsolute = route => {
   if (!path.isAbsolute(`${route}`)) {
     absoluteRoute = path.resolve(`${route}`);
   } else {
-    absoluteRoute = path.isAbsolute(`${route}`);
+    absoluteRoute= route
   }
   return absoluteRoute;
 };
+
 
 export const verifyExtension = file => {
   return path.extname(`${file}`) === ".md"   
 };
 
-//console.log(verifyExtension("/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md"));
+// console.log(convertToAbsolute("README.md"));

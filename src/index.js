@@ -1,38 +1,37 @@
 #!/usr/bin/env node
-/*
-//import  fetch from 'node-fetch';
-//import marked from 'marked';
+import {mdLinks} from './api-mdlinks.js'
+import {getStatusOfLinksForCli} from './links-controller.js'
 
-console.log(`Current directory: ${process.cwd()}`);
+const args = process.argv.slice(2)
+const route = args[0]
+console.log(route)
+
+const options = element =>{
+  const withoutValidate = `${element.href} ${element.text} ${element.file}`;
+  const whitValidate =`${element.status}`;
+  if(args[1]==='validate'){
+    console.log(withoutValidate,whitValidate)
+  }
+  else if (!args.includes('--stats', '--validate')) {
+    console.log(withoutValidate)
+}
+};
+
+mdLinks(route, { validate: true }).then(result => {
+  result.forEach(options)
+  const basicStats = getStatusOfLinksForCli(result);
+  const basic = `
+    Total: ${basicStats.total}
+    Unique: ${basicStats.unique}`
+  const validated = `
+    Broken: ${basicStats.broken}`
+
+  if (args[1] == '--stats' && !args[2]) {
+    console.log(basic)
+  } else if (args[1] == '--stats' && args[2] == '--validate') {
+    console.log(basic, validated)
+  }
+});
+/* console.log(`Current directory: ${process.cwd()}`);
 path.join(`Current directory: ${process.cwd()}`);
-// promise y file
-
-const mdLinks = require("md-links");
-
-mdLinks("./some/example.md")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/example.md", { validate: true })
-  .then(links => {
-    // => [{ href, text, file, status, ok }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/dir")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-
-fetch('https://github.com/lizñañaña')
-    .then(res => {
-        console.log(res.ok);
-        console.log(res.status);
-        console.log(res.statusText);
-   
-    });
-
-    */
+*/

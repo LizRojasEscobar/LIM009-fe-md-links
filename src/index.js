@@ -7,7 +7,7 @@ const route = args[0]
 console.log(route)
 
 const options = element =>{
-  const withoutValidate = `${element.href} ${element.text} ${element.file}`;
+  const withoutValidate = `${element.href} ${element.text.substring(0,50)} ${element.file}`;
   const whitValidate =`${element.status}`;
   if(args[1]==='validate'){
     console.log(withoutValidate,whitValidate)

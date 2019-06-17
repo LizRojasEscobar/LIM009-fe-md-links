@@ -9,11 +9,13 @@ return new Promise((resolve, reject)=>{
   } else if (convertToAbsolute(path) && options.validate===true ){
     resolve(getStatusOfLInk(markdownLinkExtractor(path))
     )
+  }else{
+    console.log('error')
   }
   })
 } 
 
-mdLinks ('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: false})
+mdLinks ('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: true})
 .then((result)=>{
  console.log(result)
 })

@@ -1,60 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1560811495297" clover="3.2.0">
-  <project timestamp="1560811495297" name="All files">
-    <metrics statements="42" coveredstatements="42" conditionals="8" coveredconditionals="8" methods="14" coveredmethods="14" elements="64" coveredelements="64" complexity="0" loc="42" ncloc="42" packages="1" files="4" classes="4"/>
+<coverage generated="1560814375792" clover="3.2.0">
+  <project timestamp="1560814375792" name="All files">
+    <metrics statements="48" coveredstatements="48" conditionals="16" coveredconditionals="15" methods="16" coveredmethods="16" elements="80" coveredelements="79" complexity="0" loc="48" ncloc="48" packages="1" files="5" classes="5"/>
+    <file name="api-mdlinks.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/api-mdlinks.js">
+      <metrics statements="8" coveredstatements="8" conditionals="8" coveredconditionals="7" methods="3" coveredmethods="3"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="7" count="3" type="cond" truecount="4" falsecount="0"/>
+      <line num="8" count="1" type="stmt"/>
+      <line num="9" count="2" type="cond" truecount="3" falsecount="1"/>
+      <line num="10" count="2" type="stmt"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+    </file>
     <file name="directory-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/directory-controller.js">
       <metrics statements="13" coveredstatements="13" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
       <line num="6" count="1" type="stmt"/>
-      <line num="7" count="30" type="stmt"/>
-      <line num="8" count="30" type="cond" truecount="2" falsecount="0"/>
-      <line num="9" count="22" type="cond" truecount="2" falsecount="0"/>
-      <line num="10" count="8" type="stmt"/>
+      <line num="7" count="32" type="stmt"/>
+      <line num="8" count="32" type="cond" truecount="2" falsecount="0"/>
+      <line num="9" count="24" type="cond" truecount="2" falsecount="0"/>
+      <line num="10" count="10" type="stmt"/>
       <line num="13" count="8" type="stmt"/>
       <line num="14" count="23" type="stmt"/>
-      <line num="19" count="30" type="stmt"/>
+      <line num="19" count="32" type="stmt"/>
       <line num="24" count="1" type="stmt"/>
-      <line num="25" count="5" type="stmt"/>
-      <line num="26" count="5" type="stmt"/>
-      <line num="27" count="6" type="stmt"/>
-      <line num="33" count="5" type="stmt"/>
+      <line num="25" count="7" type="stmt"/>
+      <line num="26" count="7" type="stmt"/>
+      <line num="27" count="8" type="stmt"/>
+      <line num="33" count="7" type="stmt"/>
     </file>
     <file name="file-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/file-controller.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="3" count="1" type="stmt"/>
-      <line num="4" count="32" type="stmt"/>
-      <line num="5" count="32" type="stmt"/>
+      <line num="4" count="34" type="stmt"/>
+      <line num="5" count="34" type="stmt"/>
     </file>
     <file name="links-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/links-controller.js">
-      <metrics statements="19" coveredstatements="19" conditionals="2" coveredconditionals="2" methods="7" coveredmethods="7"/>
+      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
       <line num="6" count="1" type="stmt"/>
-      <line num="7" count="3" type="stmt"/>
-      <line num="8" count="3" type="stmt"/>
-      <line num="9" count="4" type="stmt"/>
-      <line num="10" count="4" type="stmt"/>
-      <line num="11" count="7" type="stmt"/>
-      <line num="18" count="4" type="stmt"/>
-      <line num="21" count="3" type="stmt"/>
+      <line num="7" count="5" type="stmt"/>
+      <line num="8" count="5" type="stmt"/>
+      <line num="9" count="6" type="stmt"/>
+      <line num="10" count="6" type="stmt"/>
+      <line num="11" count="11" type="stmt"/>
+      <line num="18" count="6" type="stmt"/>
+      <line num="21" count="5" type="stmt"/>
       <line num="28" count="1" type="stmt"/>
-      <line num="29" count="2" type="stmt"/>
-      <line num="30" count="4" type="stmt"/>
-      <line num="32" count="4" type="stmt"/>
-      <line num="33" count="4" type="cond" truecount="2" falsecount="0"/>
-      <line num="34" count="2" type="stmt"/>
-      <line num="36" count="2" type="stmt"/>
-      <line num="38" count="4" type="stmt"/>
-      <line num="42" count="2" type="stmt"/>
-      <line num="46" count="1" type="stmt"/>
-      <line num="48" count="1" type="stmt"/>
+      <line num="29" count="3" type="stmt"/>
+      <line num="30" count="6" type="stmt"/>
+      <line num="32" count="6" type="stmt"/>
+      <line num="33" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="34" count="3" type="stmt"/>
+      <line num="36" count="3" type="stmt"/>
+      <line num="38" count="6" type="stmt"/>
+      <line num="42" count="3" type="stmt"/>
     </file>
     <file name="path-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/path-controller.js">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <line num="4" count="1" type="stmt"/>
-      <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="6" count="7" type="cond" truecount="2" falsecount="0"/>
       <line num="7" count="1" type="stmt"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="11" count="2" type="stmt"/>
+      <line num="9" count="6" type="stmt"/>
+      <line num="11" count="7" type="stmt"/>
       <line num="15" count="1" type="stmt"/>
-      <line num="16" count="24" type="stmt"/>
+      <line num="16" count="26" type="stmt"/>
     </file>
   </project>
 </coverage>

@@ -14,6 +14,9 @@
     markdownLinkExtractor,
     getStatusOfLInk
   } from '../src/links-controller.js'
+  import{
+    mdLinks
+  } from '../src/api-mdlinks.js'
 
 describe('Deberia retornar que el path sea absoluto',() =>{
   it ('deberia ser una funcion', ()=>{
@@ -119,6 +122,40 @@ describe ('deberia recibir una array de objetos', ()=>{
     done()
     })
   })
+})
 
-
+describe('jfjkfsfbvbrg', ()=>{
+  it('sfbrgntgjh', (done)=>{
+    mdLinks('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: false}).then(result =>{
+     const resultFromFunctionMdLinks = [ { href: 'https://nodejs.org/es/123456789',
+      text: 'Node.js',
+      file:
+       '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' },
+    { href: 'https://developers.google.com/v8/',
+      text: 'motor de JavaScript V8 de Chrome',
+      file:
+       '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' } ]
+       expect (result).toEqual(resultFromFunctionMdLinks)
+       done();
+    })   
+  })
+  it('sfbrgntgjh', (done)=>{
+    mdLinks('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: true}).then(result =>{
+     const resultFromFunctionMdLinks = [ { href: 'https://nodejs.org/es/123456789',
+     text: 'Node.js',
+     file:
+      '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
+     status: 404,
+     ok: 'fail' },
+   { href: 'https://developers.google.com/v8/',
+     text: 'motor de JavaScript V8 de Chrome',
+     file:
+      '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
+     status: 200,
+     ok: 'ok' } ]
+       expect (result).toEqual(resultFromFunctionMdLinks)
+       done();
+    })
+   
+  })
 })

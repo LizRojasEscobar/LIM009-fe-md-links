@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import {mdLinks} from './api-mdlinks.js'
-import {getStatusOfLinksForCli} from './links-controller.js'
+import {getStatusOfLinksForCli} from './cli.js'
 
 const args = process.argv.slice(2)
 const route = args[0]

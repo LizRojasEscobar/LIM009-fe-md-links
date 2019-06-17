@@ -33,7 +33,7 @@ export const getStatusOfLInk = (array)=>{
          if (result.ok){
           obj.ok ='ok';
          }else{
-          obj.ok = 'fail';
+          obj.ok ='fail';
          }
       return obj
     })
@@ -42,31 +42,12 @@ export const getStatusOfLInk = (array)=>{
 return Promise.all(responsePromises);
 }
 
-
-getStatusOfLInk(markdownLinkExtractor("/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md"))
+/*
+getStatusOfLInk(markdownLinkExtractor("/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md"))
 .then ((result)=>{
   console.log(result);
  })
 
-
-/*
-export const getStatusOfLinks = (arrayOfObj) => {
-  const arrayOfUrls = arrayOfObj.map(element =>{
-    return element.href;
-    })
-  const uniqueUrls = new Set(arrayOfUrls);  
-  const brokenUrls = arrayOfObj.filter( element => {
-    return element.ok === 'fail';
-  })
-  
-  return {
-    Total: arrayOfUrls.length,
-    Unique: uniqueUrls.size,
-    Broken: brokenUrls.length
-  }
-}
-
-
-
-
 */
+
+

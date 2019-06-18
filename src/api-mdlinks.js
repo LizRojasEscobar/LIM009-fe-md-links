@@ -9,8 +9,6 @@ return new Promise((resolve, reject)=>{
   } else if (convertToAbsolute(path) && options.validate===true ){
     resolve(getStatusOfLInk(markdownLinkExtractor(path))
     )
-  }else{
-    console.log('error')
   }
   })
 } 

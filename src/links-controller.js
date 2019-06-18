@@ -10,7 +10,7 @@ export const markdownLinkExtractor = route => {
     renderer.link = (href, title, text) => {
       arrayWithlinks.push({
         href: href,
-        text: text,
+        text: text.substring(0,50),
         file: element.file
       });
     };

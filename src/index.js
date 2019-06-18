@@ -4,9 +4,8 @@ import {getStatusOfLinksForCli} from './cli.js'
 
 const args = process.argv.slice(2)
 const route = args[0]
-console.log(route)
 
-const options = element =>{
+const optionsforMdlinks = element =>{
   const withoutValidate = `${element.href} ${element.text.substring(0,50)} ${element.file}`;
   const whitValidate =`${element.status}`;
   if(args[1]==='validate'){

@@ -124,8 +124,8 @@ describe ('deberia recibir una array de objetos', ()=>{
   })
 })
 
-describe('jfjkfsfbvbrg', ()=>{
-  it('sfbrgntgjh', (done)=>{
+describe('Api Mdlinks', ()=>{
+  it('deberia retornar un array de objetos con los status y ok con parametro validate false', (done)=>{
     mdLinks('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: false}).then(result =>{
      const resultFromFunctionMdLinks = [ { href: 'https://nodejs.org/es/123456789',
       text: 'Node.js',
@@ -139,7 +139,7 @@ describe('jfjkfsfbvbrg', ()=>{
        done();
     })   
   })
-  it('sfbrgntgjh', (done)=>{
+  it('deberia retornar un array de objetos con los status y ok con parametro validate true', (done)=>{
     mdLinks('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: true}).then(result =>{
      const resultFromFunctionMdLinks = [ { href: 'https://nodejs.org/es/123456789',
      text: 'Node.js',

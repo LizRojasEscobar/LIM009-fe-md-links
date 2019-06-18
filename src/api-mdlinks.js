@@ -12,8 +12,9 @@ return new Promise((resolve, reject)=>{
   }
   })
 } 
-
+/*
 mdLinks ('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: true})
 .then((result)=>{
  console.log(result)
 })
+*/

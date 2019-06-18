@@ -5,10 +5,10 @@ import {getStatusOfLinksForCli} from './cli.js'
 const args = process.argv.slice(2)
 const route = args[0]
 
-const optionsforMdlinks = element =>{
-  const withoutValidate = `${element.href} ${element.text.substring(0,50)} ${element.file}`;
+const optionForMdlinks = element =>{
+  const withoutValidate = `${element.href} ${element.text} ${element.file}`;
   const whitValidate =`${element.status}`;
-  if(args[1]==='validate'){
+  if(args[1]==='--validate'){
     console.log(withoutValidate,whitValidate)
   }
   else if (!args.includes('--stats', '--validate')) {
@@ -17,20 +17,24 @@ const optionsforMdlinks = element =>{
 };
 
 mdLinks(route, { validate: true }).then(result => {
-  result.forEach(options)
-  const basicStats = getStatusOfLinksForCli(result);
-  const basic = `
-    Total: ${basicStats.total}
-    Unique: ${basicStats.unique}`
-  const validated = `
-    Broken: ${basicStats.broken}`
+  result.forEach(optionForMdlinks)
+  const firststats = getStatusOfLinksForCli(result);
+  const resultOfStats = `
+    Total: ${firststats.total}
+    Unique: ${firststats.unique}`
+  const brokenStats = `
+    Broken: ${firststats.broken}`
 
   if (args[1] == '--stats' && !args[2]) {
-    console.log(basic)
+    console.log(resultOfStats)
   } else if (args[1] == '--stats' && args[2] == '--validate') {
-    console.log(basic, validated)
+    console.log(resultOfStats, brokenStats)
   }
 });
+
+
+
+
 /* console.log(`Current directory: ${process.cwd()}`);
 path.join(`Current directory: ${process.cwd()}`);
 */

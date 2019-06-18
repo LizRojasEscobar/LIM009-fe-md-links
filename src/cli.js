@@ -4,11 +4,11 @@ export const getStatusOfLinksForCli = (arrayOfObj) => {
       })
     const uniqueUrls = new Set(arrayOfUrls);  
     const brokenUrls = arrayOfObj.filter( element => {
-      return element.ok === 'fail';
+      return element.ok ==='fail';
     })    
     return {
-      Total: arrayOfUrls.length,
-      Unique: uniqueUrls.size,
-      Broken: brokenUrls.length
+      total: arrayOfUrls.length,
+      unique: uniqueUrls.size,
+      broken: brokenUrls.length
     }
   }

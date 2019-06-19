@@ -42,12 +42,8 @@ export const getStatusOfLInk = (array)=>{
 return Promise.all(responsePromises);
 }
 
-/*
-getStatusOfLInk(markdownLinkExtractor("/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md"))
+/*getStatusOfLInk(markdownLinkExtractor("LIM009-fe-md-links/prueba/README.md"))
 .then ((result)=>{
   console.log(result);
- })
-
-*/
-
+ })*/
 

@@ -12,3 +12,10 @@ export const getStatusOfLinksForCli = (arrayOfObj) => {
       broken: brokenUrls.length
     }
   }
+/*
+
+  export const total =(array)=>{
+  const arrayOfAllUrl =array.map(element =>{
+    return element
+  })
+  }*/

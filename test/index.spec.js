@@ -10,13 +10,15 @@
     pathFilesAndDirectories,
     readFileInside
   } from '../src/directory-controller.js'
-  import{
+  import{ 
     markdownLinkExtractor,
     getStatusOfLInk
   } from '../src/links-controller.js'
   import{
     mdLinks
   } from '../src/api-mdlinks.js'
+  import{
+  getStatusOfLinksForCli  } from '../src/cli.js'
 
 describe('Deberia retornar que el path sea absoluto',() =>{
   it ('deberia ser una funcion', ()=>{
@@ -122,6 +124,7 @@ describe ('deberia recibir una array de objetos', ()=>{
     done()
     })
   })
+  
 })
 
 describe('Api Mdlinks', ()=>{
@@ -135,13 +138,13 @@ describe('Api Mdlinks', ()=>{
       text: 'motor de JavaScript V8 de Chrome',
       file:
        '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' } ]
-       expect (result).toEqual(resultFromFunctionMdLinks)
+       expect (result).toEqual(resultFromFunctionMdLinks) 
        done();
     })   
   })
   it('deberia retornar un array de objetos con los status y ok con parametro validate true', (done)=>{
     mdLinks('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md', {validate: true}).then(result =>{
-     const resultFromFunctionMdLinks = [ { href: 'https://nodejs.org/es/123456789',
+     const resultFromFunction = [ { href: 'https://nodejs.org/es/123456789',
      text: 'Node.js',
      file:
       '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
@@ -153,9 +156,43 @@ describe('Api Mdlinks', ()=>{
       '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
      status: 200,
      ok: 'ok' } ]
+       expect (result).toEqual(resultFromFunction)
+       done();
+    })
+   
+  })
+  it('deberia retornar un array de objetos con los status y ok con parametro validate true', (done)=>{
+    mdLinks('./prueba/prueba1', {validate: true}).then(result =>{
+     const resultFromFunctionMdLinks = [ { href: 'https://es.wikipedia.org/wiki/Markdown',
+     text: 'Markdown',
+     file:
+      '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md',
+      status: 200, 
+      ok: 'ok'}]
        expect (result).toEqual(resultFromFunctionMdLinks)
        done();
     })
    
   })
 })
+
+describe('getStatusOfLinksForCli', ()=>{
+  it('deberia de retornar una funcion', ()=>{
+    expect(typeof getStatusOfLinksForCli).toBe('function')
+  })
+  it('Debería recibir un array y retornar el total de links, broken links y unique links',()=>{
+    expect(getStatusOfLinksForCli([ { href: 'https://nodejs.org/es/123456789',
+    text: 'Node.js',
+    file:
+     '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
+    status: 404,
+    ok: 'fail' },
+  { href: 'https://developers.google.com/v8/',
+    text: 'motor de JavaScript V8 de Chrome',
+    file:
+     '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
+    status: 200,
+    ok: 'ok' } ])).toStrictEqual(  {"broken": 1, "total": 2, "unique": 2})
+
+  })
+ })

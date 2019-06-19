@@ -2,39 +2,72 @@
 import {mdLinks} from './api-mdlinks.js'
 import {getStatusOfLinksForCli} from './cli.js'
 
-const args = process.argv.slice(2)
-const route = args[0]
-
-const optionForMdlinks = element =>{
-  const withoutValidate = `${element.href} ${element.text} ${element.file}`;
-  const whitValidate =`${element.status}`;
-  if(args[1]==='--validate'){
-    console.log(withoutValidate,whitValidate)
-  }
-  else if (!args.includes('--stats', '--validate')) {
-    console.log(withoutValidate)
+const options = {
+  validate: false, 
+  stats:false
 }
-};
+const [, , ...params] = process.argv;
+const [route, ...opts] = params;
 
-mdLinks(route, { validate: true }).then(result => {
-  result.forEach(optionForMdlinks)
-  const firststats = getStatusOfLinksForCli(result);
-  const resultOfStats = `
-    Total: ${firststats.total}
-    Unique: ${firststats.unique}`
-  const brokenStats = `
-    Broken: ${firststats.broken}`
-
-  if (args[1] == '--stats' && !args[2]) {
-    console.log(resultOfStats)
-  } else if (args[1] == '--stats' && args[2] == '--validate') {
-    console.log(resultOfStats, brokenStats)
+opts.forEach((element) => {
+  if ( element === '--validate' &&  element === '--stats') {
+    options.validate = true;
+    options.stats = true;
+  }
+  if ( element === '--validate') {
+    options.validate = true;
+  }
+  if (element === '--stats') {
+    options.stats = true;
   }
 });
 
+if (!options.validate && !options.stats) {
+  mdLinks(route, {validate: false})
+    .then(result => {
+      result.forEach(element => {
+        console.log(`${element.href} ${element.text.substring(0,50)}${element.file} \n`);
+      });
+    })
+    .catch(console.error);
+} 
+if (options.validate && !options.stats) {
+  mdLinks(route, options)
+    .then(result => {
+      result.forEach(element => {
+        console.log(`${element.href} ${element.text.substring(0,50)}${element.file} ${element.ok} ${element.status}\n`);
+      });
+    })
+    .catch(console.error);
+}
+
+if (options.stats && !options.validate) {
+  mdLinks(route, {validate: true})
+  .then(result1 => getStatusOfLinksForCli(result1))
+      .then(stats => { 
+          console.log(`Total: ${stats.total} \nUnique: ${stats.unique}\n `);
+        })
+    .catch(console.error)
+};
+
+if (options.stats && options.validate ) {
+  mdLinks(route, {validate: true})
+  .then(result1 => getStatusOfLinksForCli(result1))
+      .then(stats1 => { 
+          console.log(`Total: ${stats1.total} \nUnique: ${stats1.unique} \nBroken: ${stats1.broken}\n`);
+        })
+    .catch(console.error)
+}
 
 
 
-/* console.log(`Current directory: ${process.cwd()}`);
+
+
+
+
+
+
+/*
+console.log(`Current directory: ${process.cwd()}`);
 path.join(`Current directory: ${process.cwd()}`);
 */

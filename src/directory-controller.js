@@ -1,24 +1,25 @@
 import path from "path";
 import fs from "fs";
 import { verifyFile } from "./file-controller.js";
-import { verifyExtension } from "./path-controller.js";
+import { verifyExtension, convertToAbsolute } from "./path-controller.js";
 
 export const pathFilesAndDirectories = route => {
+  const newRoute = convertToAbsolute(route);
   let arrayOfPath = [];
-  if (verifyFile(`${route}`)) {
-    if (verifyExtension(`${route}`)) {
-      arrayOfPath.push(`${route}`);
+  if (verifyFile(`${newRoute}`)) {
+    if (verifyExtension(`${newRoute}`)) {
+      arrayOfPath.push(`${newRoute}`);
     }
   } else {
-    fs.readdirSync(`${route}`).forEach(file => {
+    fs.readdirSync(`${newRoute}`).forEach(file => {
       arrayOfPath = arrayOfPath.concat(
-        pathFilesAndDirectories(path.join(`${route}`, `${file}`))
+        pathFilesAndDirectories(path.join(`${newRoute}`, `${file}`))
       );
     });
   }
   return arrayOfPath;
 };
-//  console.log(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib'));
+//console.log(pathFilesAndDirectories('../prueba/prueba1'));
 
 
 export const readFileInside = route => {
@@ -32,4 +33,4 @@ export const readFileInside = route => {
 
   return arrayContent;
 };
-//  console.log(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));
+// console.log(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));

@@ -44,8 +44,8 @@ if (options.validate && !options.stats) {
 if (options.stats && !options.validate) {
   mdLinks(route, {validate: true})
   .then(result1 => getStatusOfLinksForCli(result1))
-      .then(stats => { 
-          console.log(`Total: ${stats.total} \nUnique: ${stats.unique}\n `);
+      .then(status => { 
+          console.log(`Total: ${status.total} \nUnique: ${status.unique}\n `);
         })
     .catch(console.error)
 };
@@ -53,19 +53,11 @@ if (options.stats && !options.validate) {
 if (options.stats && options.validate ) {
   mdLinks(route, {validate: true})
   .then(result1 => getStatusOfLinksForCli(result1))
-      .then(stats1 => { 
-          console.log(`Total: ${stats1.total} \nUnique: ${stats1.unique} \nBroken: ${stats1.broken}\n`);
+      .then(status => { 
+          console.log(`Total: ${status.total} \nUnique: ${status.unique} \nBroken: ${status.broken}\n`);
         })
     .catch(console.error)
 }
-
-
-
-
-
-
-
-
 
 /*
 console.log(`Current directory: ${process.cwd()}`);

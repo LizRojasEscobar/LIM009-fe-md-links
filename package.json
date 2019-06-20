@@ -24,6 +24,7 @@
     "@babel/plugin-transform-modules-commonjs": "^7.4.4",
     "@babel/preset-env": "^7.4.5",
     "eslint": "^5.16.0",
+    "fetch-mock": "^7.3.3",
     "jest": "^24.8.0",
     "mock-fs": "^4.10.1"
   },

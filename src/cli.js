@@ -62,3 +62,8 @@ export const getStatusOfLinksForCli = (arrayOfObj) => {
       .catch(console.error)
   }
   }
+  /*
+  mdLinksForCli ('/home/liz/Documentos/md.links/LIM009-fe-md-links/README.md','--validate')
+  .then(result =>{
+    console.log (result)
+  })*/

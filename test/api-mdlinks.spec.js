@@ -32,11 +32,11 @@ describe('Api Mdlinks', ()=>{
        const resultFromFunctionMdLinks = [ { href: 'https://nodejs.org/es/123456789',
         text: 'Node.js',
         file:
-         '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' },
+        path.join(process.cwd(), 'prueba/README.md') },
       { href: 'https://developers.google.com/v8/',
         text: 'motor de JavaScript V8 de Chrome',
         file:
-         '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' } ]
+        path.join(process.cwd(), 'prueba/README.md') } ]
          expect (result).toEqual(resultFromFunctionMdLinks) 
          done();
       })   
@@ -46,13 +46,13 @@ describe('Api Mdlinks', ()=>{
        const resultFromFunction = [ { href: 'https://nodejs.org/es/123456789',
        text: 'Node.js',
        file:
-        '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
+       path.join(process.cwd(), 'prueba/README.md'),
        status: 404,
        ok: 'fail' },
      { href: 'https://developers.google.com/v8/',
        text: 'motor de JavaScript V8 de Chrome',
        file:
-        '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md',
+       path.join(process.cwd(), 'prueba/README.md'),
        status: 200,
        ok: 'ok' } ]
          expect (result).toEqual(resultFromFunction)
@@ -65,7 +65,7 @@ describe('Api Mdlinks', ()=>{
        const resultFromFunctionMdLinks = [ { href: 'https://es.wikipedia.org/wiki/Markdown',
        text: 'Markdown',
        file:
-        '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md',
+       path.join(process.cwd(), 'prueba/prueba1/README.md'),
         status: 200, 
         ok: 'ok'}]
          expect (result).toEqual(resultFromFunctionMdLinks)

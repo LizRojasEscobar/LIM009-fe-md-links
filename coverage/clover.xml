@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561069475286" clover="3.2.0">
-  <project timestamp="1561069475287" name="All files">
+<coverage generated="1561086773442" clover="3.2.0">
+  <project timestamp="1561086773442" name="All files">
     <metrics statements="77" coveredstatements="77" conditionals="30" coveredconditionals="30" methods="29" coveredmethods="29" elements="136" coveredelements="136" complexity="0" loc="77" ncloc="77" packages="1" files="6" classes="6"/>
     <file name="api-mdlinks.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/api-mdlinks.js">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
@@ -46,26 +46,26 @@
     </file>
     <file name="directory-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/directory-controller.js">
       <metrics statements="14" coveredstatements="14" conditionals="4" coveredconditionals="4" methods="4" coveredmethods="4"/>
-      <line num="6" count="4" type="stmt"/>
-      <line num="7" count="53" type="stmt"/>
-      <line num="8" count="53" type="stmt"/>
-      <line num="9" count="53" type="cond" truecount="2" falsecount="0"/>
-      <line num="10" count="34" type="cond" truecount="2" falsecount="0"/>
-      <line num="11" count="20" type="stmt"/>
-      <line num="14" count="19" type="stmt"/>
-      <line num="15" count="39" type="stmt"/>
-      <line num="20" count="53" type="stmt"/>
-      <line num="25" count="4" type="stmt"/>
-      <line num="26" count="12" type="stmt"/>
+      <line num="7" count="4" type="stmt"/>
+      <line num="8" count="41" type="stmt"/>
+      <line num="9" count="41" type="stmt"/>
+      <line num="10" count="41" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="22" type="cond" truecount="2" falsecount="0"/>
+      <line num="12" count="20" type="stmt"/>
+      <line num="15" count="19" type="stmt"/>
+      <line num="16" count="27" type="stmt"/>
+      <line num="21" count="41" type="stmt"/>
+      <line num="26" count="4" type="stmt"/>
       <line num="27" count="12" type="stmt"/>
-      <line num="28" count="18" type="stmt"/>
-      <line num="34" count="12" type="stmt"/>
+      <line num="28" count="12" type="stmt"/>
+      <line num="29" count="18" type="stmt"/>
+      <line num="35" count="12" type="stmt"/>
     </file>
     <file name="file-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/file-controller.js">
       <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <line num="3" count="5" type="stmt"/>
-      <line num="4" count="55" type="stmt"/>
-      <line num="5" count="55" type="stmt"/>
+      <line num="4" count="43" type="stmt"/>
+      <line num="5" count="43" type="stmt"/>
     </file>
     <file name="links-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/links-controller.js">
       <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="6" coveredmethods="6"/>
@@ -90,12 +90,12 @@
     <file name="path-controller.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/path-controller.js">
       <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
       <line num="4" count="5" type="stmt"/>
-      <line num="6" count="55" type="cond" truecount="2" falsecount="0"/>
-      <line num="7" count="2" type="stmt"/>
-      <line num="9" count="53" type="stmt"/>
-      <line num="11" count="55" type="stmt"/>
+      <line num="6" count="43" type="cond" truecount="2" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="9" count="42" type="stmt"/>
+      <line num="11" count="43" type="stmt"/>
       <line num="15" count="5" type="stmt"/>
-      <line num="16" count="36" type="stmt"/>
+      <line num="16" count="24" type="stmt"/>
     </file>
   </project>
 </coverage>

@@ -3,6 +3,7 @@ import fs from "fs";
 import { verifyFile } from "./file-controller.js";
 import { verifyExtension, convertToAbsolute } from "./path-controller.js";
 
+
 export const pathFilesAndDirectories = route => {
   const newRoute = convertToAbsolute(route);
   let arrayOfPath = [];

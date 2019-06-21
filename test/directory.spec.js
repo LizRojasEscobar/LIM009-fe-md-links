@@ -1,33 +1,50 @@
 import{pathFilesAndDirectories,readFileInside} from '../src/directory-controller.js'
+import mock from 'mock-fs';
+import process from 'process';
+import path from 'path';
 
-
+beforeEach(()=> {
+    mock({
+      'prueba': {
+       'README.md': `![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg) ## Introducción [Node.js](https://nodejs.org/es/123456789) es un entorno de ejecución para JavaScript construido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).`,
+        'prueba1': {
+          'README.md':`[Markdown](https://es.wikipedia.org/wiki/Markdown)(empezando por el tradicional).`
+          },
+        },
+      'lib': {
+        'archivo.txt':'hola mundo',
+      }
+    });
+  });
+  afterEach(mock.restore);
+  
 describe('Deberia recorrer un directorio',() =>{
     it ('deberia ser una funcion', ()=>{
       expect(typeof pathFilesAndDirectories).toEqual('function');
       })
       it ('deberia de retornar un array con los archivos .md', ()=>{
-        expect(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba')).toEqual(["/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md", "/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md"]);
+        expect(pathFilesAndDirectories(path.join(process.cwd(),'prueba'))).toEqual([path.join(process.cwd(),'prueba','README.md'), path.join(process.cwd(),'prueba','prueba1','README.md')]);
       })
       it ('deberia retornar un array vacio', ()=>{
-        expect(pathFilesAndDirectories('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib')).toEqual([]);
+        expect(pathFilesAndDirectories(path.join(process.cwd(),'lib'))).toEqual([]);
       })
   });
   describe('Deberia recorrer dentro del archivo',() =>{
     it ('deberia ser una funcion', ()=>{
       expect(typeof readFileInside).toEqual('function');
       })
-      it ('deberia de retornar un array con los archivos .md', ()=>{
-        expect(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba')).toEqual([ { content:
-          '![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg)\n\n## Introducción\n\n[Node.js](https://nodejs.org/es/123456789) es un entorno de ejecución para JavaScript\nconstruido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).\n\n',
-         file:
-          '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md' },
+      it ('deberia de retornar un array de objetos con los archivos .md', ()=>{
+        expect(readFileInside(path.join(process.cwd(),'prueba'))).toEqual([{ content:
+      `![md-links](https://user-images.githubusercontent.com/110297/42118443-b7a5f1f0-7bc8-11e8-96ad-9cc5593715a6.jpg) ## Introducción [Node.js](https://nodejs.org/es/123456789) es un entorno de ejecución para JavaScript construido con el [motor de JavaScript V8 de Chrome](https://developers.google.com/v8/).`,
+         file: path.join(process.cwd(),'prueba','README.md')
+         },
        { content:
-          '[Markdown](https://es.wikipedia.org/wiki/Markdown) \n(empezando por el tradicional `README.md`).\n',
+        `[Markdown](https://es.wikipedia.org/wiki/Markdown)(empezando por el tradicional).`,
          file:
-          '/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md' } ]);
+         path.join(process.cwd(),'prueba','prueba1','README.md') } ]);
       })
-      it ('deberia retornar un array vacio', ()=>{
-        expect(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/lib')).toEqual([]);
+      it ('deberia retornar un array de objetos vacio', ()=>{
+        expect(readFileInside(path.join(process.cwd(),'lib'))).toEqual([]);
       })
   });
   

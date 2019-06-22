@@ -1,90 +1,33 @@
 # Markdown Links
-- Libreria que nos permite analizar los archivos MarcDown extrayendo los links, texto y estado de los links. 
+- Librería que analiza los archivos MarcDown extrayendo los links, texto y estado de los links. 
+
 ## Version
-- Tu módulo debe ser instalable via `npm install <github-user>/md-links`. Este
-módulo debe incluir tanto un _ejecutable_ que podamos invocar en la línea de
-comando como una interfaz que podamos importar con `require` para usarlo
-programáticamente.
+- 1.00
 
 ##Instalacion
+Puede instalar la librería de la siguiente forma `npm install --g LizRojasEscobar/LIM009-fe-md-links`
 ##Flujograma
+El siguiente flujograma representa el proceso que se siguió para el desarrollo de la librería, mostrando cada una de las actividades que se realizó. 
+
+- [Diagrama-MdLinks](https://i.ibb.co/P1N3LrK/md-links.png)
+
+
 ##Guia de Uso 
-
-
-
-
-### `README.md`
-
-- Encontrar el *pseudo codigo* o *diagrama de flujo* con el algoritmo que
-  soluciona el problema.
-- Encontrar un board con el backlog para la implementación de la librería.
-- Encontrar la documentación técnica de la librería.
-- Encontrar la Guía de uso e instalación de la librería.
 
 ### API `mdLinks(path, opts)`
 
-- El módulo exporta una función con la interfaz (API) esperada.
-- El módulo implementa soporte para archivo individual
-- El módulo implementa soporte para directorios
-- El módulo implementa `options.validate`
+El ejecutable de nuestra aplicación debe poder ejecutarse de la siguiente
+manera.
 
-### CLI
-
-- Expone ejecutable `md-links` en el path (configurado en `package.json`)
-- Se ejecuta sin errores / output esperado.
-- El ejecutable implementa `--validate`.
-- El ejecutable implementa `--stats`.
-- El ejecutable implementa `--validate` y `--stats` juntos.
-
-### JavaScript API
-
-El módulo debe poder importarse en otros scripts de Node.js y debe ofrecer la
-siguiente interfaz:
-
-#### `mdLinks(path, options)`
+`md-links <path-to-file> [options]`
 
 ##### Argumentos
 
-- `path`: Ruta absoluta o relativa al archivo o directorio. Si la ruta pasada es
-  relativa, debe resolverse como relativa al directorio desde donde se invoca
-  node - _current working directory_).
+- `path`: Ruta absoluta o relativa al archivo o directorio.
 - `options`: Un objeto con las siguientes propiedades:
   * `validate`: Booleano que determina si se desea validar los links
-    encontrados.
+    encontrados(true o false).
 
-##### Valor de retorno
-
-La función debe retornar una promesa (`Promise`) que resuelva a un arreglo
-(`Array`) de objetos (`Object`), donde cada objeto representa un link y contiene
-las siguientes propiedades:
-
-- `href`: URL encontrada.
-- `text`: Texto que aparecía dentro del link (`<a>`).
-- `file`: Ruta del archivo donde se encontró el link.
-
-#### Ejemplo
-
-```js
-const mdLinks = require("md-links");
-
-mdLinks("./some/example.md")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/example.md", { validate: true })
-  .then(links => {
-    // => [{ href, text, file, status, ok }]
-  })
-  .catch(console.error);
-
-mdLinks("./some/dir")
-  .then(links => {
-    // => [{ href, text, file }]
-  })
-  .catch(console.error);
-```
 
 ### CLI (Command Line Interface - Interfaz de Línea de Comando)
 
@@ -101,12 +44,6 @@ $ md-links ./some/example.md
 ./some/example.md https://otra-cosa.net/algun-doc.html algún doc
 ./some/example.md http://google.com/ Google
 ```
-
-El comportamiento por defecto no debe validar si las URLs responden ok o no,
-solo debe identificar el archivo markdown (a partir de la ruta que recibe como
-argumento), analizar el archivo Markdown e imprimir los links que vaya
-encontrando, junto con la ruta del archivo donde aparece y el texto
-que hay dentro del link (truncado a 50 caracteres).
 
 #### Options
 
@@ -150,8 +87,6 @@ Unique: 3
 Broken: 1
 ```
 
-
-
 ### Otros recursos
 
 - [Acerca de Node.js - Documentación oficial](https://nodejs.org/es/about/)
@@ -164,13 +99,3 @@ Broken: 1
 - [¿Simplemente qué es Node.js? - IBM Developer Works, 2011](https://www.ibm.com/developerworks/ssa/opensource/library/os-nodejs/index.html)
 - [Node.js y npm](https://www.genbeta.com/desarrollo/node-js-y-npm)
 - [Módulos, librerías, paquetes, frameworks... ¿cuál es la diferencia?](http://community.laboratoria.la/t/modulos-librerias-paquetes-frameworks-cual-es-la-diferencia/175)
-- [Asíncronía en js](https://carlosazaustre.com/manejando-la-asincronia-en-javascript/)
-- [NPM](https://docs.npmjs.com/getting-started/what-is-npm)
-- [Publicar packpage](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- [Crear módulos en Node.js](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- [Leer un archivo](https://nodejs.org/api/fs.html#fs_fs_readfile_path_options_callback)
-- [Leer un directorio](https://nodejs.org/api/fs.html#fs_fs_readdir_path_options_callback)
-- [Path](https://nodejs.org/api/path.html)
-- [Linea de comando CLI](https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e)
-- [Promise] (https://javascript.info/promise-basics)
-- [Comprendiendo Promesas en Js](https://hackernoon.com/understanding-promises-in-javascript-13d99df067c1)

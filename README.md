@@ -1,7 +1,7 @@
 # Markdown Links
 - Librería que analiza los archivos MarcDown extrayendo los links, texto y estado de los links. 
 
-## Version
+## Versión
 - 1.00
 
 ## Instalacion

@@ -4,15 +4,16 @@
 ## Version
 - 1.00
 
-##Instalacion
+## Instalacion
 Puede instalar la librería de la siguiente forma `npm install --g LizRojasEscobar/LIM009-fe-md-links`
-##Flujograma
+
+## Flujograma
 El siguiente flujograma representa el proceso que se siguió para el desarrollo de la librería, mostrando cada una de las actividades que se realizó. 
 
 - [Diagrama-MdLinks](https://i.ibb.co/P1N3LrK/md-links.png)
 
 
-##Guia de Uso 
+## Guia de Uso 
 
 ### API `mdLinks(path, opts)`
 

@@ -10,7 +10,7 @@ Puede instalar la librería de la siguiente forma `npm install --g LizRojasEscob
 ## Flujograma
 El siguiente flujograma representa el proceso que se siguió para el desarrollo de la librería, mostrando cada una de las actividades que se realizó. 
 
-- [Diagrama-MdLinks](https://i.ibb.co/P1N3LrK/md-links.png)
+![Flujograma](https://i.ibb.co/P1N3LrK/md-links.png)
 
 
 ## Guia de Uso 

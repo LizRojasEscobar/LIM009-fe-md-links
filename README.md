@@ -4,7 +4,7 @@
 ## Versión
 - 1.00
 
-## Instalacion
+## Instalación
 Puede instalar la librería de la siguiente forma `npm install --g LizRojasEscobar/LIM009-fe-md-links`
 
 ## Flujograma

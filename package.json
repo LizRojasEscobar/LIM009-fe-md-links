@@ -2,7 +2,7 @@
   "name": "lim009-fe-md-links",
   "version": "1.0.0",
   "description": "md-links",
-  "main": "index.js",
+  "main": "./lib/api-mdlinks.js",
   "scripts": {
     "test": "jest --coverage",
     "build": "babel src -d lib"

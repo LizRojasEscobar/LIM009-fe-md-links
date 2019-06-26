@@ -64,10 +64,9 @@ describe('Api Mdlinks', ()=>{
       mdLinks(path.join(process.cwd(), 'prueba','prueba1'), {validate: true}).then(result =>{
        const resultFromFunctionMdLinks = [ { href: 'https://es.wikipedia.org/wiki/Markdown',
        text: 'Markdown',
-       file:
-       path.join(process.cwd(), 'prueba/prueba1/README.md'),
-        status: 200, 
-        ok: 'ok'}]
+       file: path.join(process.cwd(), 'prueba/prueba1/README.md'),
+       status: 200, 
+       ok: 'ok'}]
          expect (result).toEqual(resultFromFunctionMdLinks)
          done();
       })

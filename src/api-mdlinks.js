@@ -10,7 +10,7 @@ return new Promise((resolve, reject)=>{
   })
 } 
 /*
-mdLinks ('../prueba/README.md', {validate: true})
+mdLinks ('../prueba', {validate: true})
 .then((result)=>{
  console.log(result)
 })*/

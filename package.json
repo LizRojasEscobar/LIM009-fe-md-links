@@ -32,6 +32,7 @@
   "dependencies": {
     "@types/marked": "^0.6.5",
     "@types/node-fetch": "^2.3.5",
+    "acorn": "^6.1.1",
     "marked": "^0.6.2",
     "node-fetch": "^2.6.0"
   },

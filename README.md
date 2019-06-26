@@ -6,7 +6,7 @@
 
 ## Instalación
 Puede instalar la librería de la siguiente forma `npm install --g LizRojasEscobar/LIM009-fe-md-links`
-
+o de manera local para usar la Api `npm install LizRojasEscobar/LIM009-fe-md-links`
 ## Flujograma
 El siguiente flujograma representa el proceso que se siguió para el desarrollo de la librería, mostrando cada una de las actividades que se realizó. 
 

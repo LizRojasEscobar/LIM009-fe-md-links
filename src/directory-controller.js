@@ -24,7 +24,7 @@ export const pathFilesAndDirectories = route => { //  función que recorre direc
 
 
 export const readFileInside = route => { // función que lee contenido del archivo
-  let arrayContent = [];
+  const arrayContent = [];
   pathFilesAndDirectories(route).forEach(file => {
     arrayContent.push({
       content: fs.readFileSync(file).toString(),
@@ -34,4 +34,4 @@ export const readFileInside = route => { // función que lee contenido del archi
 
   return arrayContent;
 };
-// console.log(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));
+ // console.log(readFileInside('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));

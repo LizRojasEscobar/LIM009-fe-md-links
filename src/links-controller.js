@@ -4,7 +4,7 @@ import  fetch from 'node-fetch';
 
 // función que obtiene links
 export const markdownLinkExtractor = route => {
-  let arrayWithlinks = [];
+ const arrayWithlinks = [];
   readFileInside(route).forEach(element => {
     let renderer = new marked.Renderer();
     renderer.link = (href, title, text) => {
@@ -29,7 +29,7 @@ export const getStatusOfLInk = (array)=>{
   const responsePromises = array.map(obj =>{
   return  fetch(obj.href)
     .then ((result)=>{
-         obj.status =result.status;
+          obj.status =result.status;
          if (result.ok){
           obj.ok ='ok';
          }else{
@@ -47,8 +47,8 @@ export const getStatusOfLInk = (array)=>{
 return Promise.all(responsePromises);
 }
 
-/*getStatusOfLInk(markdownLinkExtractor("LIM009-fe-md-links/prueba/README.md"))
+getStatusOfLInk(markdownLinkExtractor("/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba"))
 .then ((result)=>{
   console.log(result);
- })*/
+ })
 

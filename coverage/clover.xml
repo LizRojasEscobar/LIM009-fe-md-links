@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561739271744" clover="3.2.0">
-  <project timestamp="1561739271744" name="All files">
+<coverage generated="1561752961213" clover="3.2.0">
+  <project timestamp="1561752961213" name="All files">
     <metrics statements="80" coveredstatements="77" conditionals="30" coveredconditionals="30" methods="30" coveredmethods="29" elements="140" coveredelements="136" complexity="0" loc="80" ncloc="80" packages="1" files="6" classes="6"/>
     <file name="api-mdlinks.js" path="/home/liz/Documentos/md.links/LIM009-fe-md-links/src/api-mdlinks.js">
       <metrics statements="5" coveredstatements="5" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>

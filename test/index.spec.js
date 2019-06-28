@@ -53,14 +53,14 @@ describe('getStatusOfLinksForCli', ()=>{
    })
    it('deberia de retornar solo href, text y file',(done)=>{
     mdLinksForCli(path.join(process.cwd(), 'prueba')).then(result=>{
-      const newString = `https://nodejs.org/es/123456789 Node.js /home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md\nhttps://developers.google.com/v8/ motor de JavaScript V8 de Chrome /home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md\nhttps://es.wikipedia.org/wiki/Markdown Markdown /home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md`;
+      const newString = `https://nodejs.org/es/123456789 Node.js ${path.join(process.cwd(), 'prueba','README.md')}\nhttps://developers.google.com/v8/ motor de JavaScript V8 de Chrome ${path.join(process.cwd(), 'prueba','README.md')}\nhttps://es.wikipedia.org/wiki/Markdown Markdown ${path.join(process.cwd(), 'prueba','prueba1','README.md')}`;
     expect(result).toEqual(newString) 
     done()
     })
    })
    it('deberia de retornar solo href, text y file, status y ok',(done)=>{
     mdLinksForCli(path.join(process.cwd(), 'prueba'),'--validate').then(result=>{
-      const newString1 = `https://nodejs.org/es/123456789 Node.js /home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md fail 404\nhttps://developers.google.com/v8/ motor de JavaScript V8 de Chrome /home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/README.md ok 200\nhttps://es.wikipedia.org/wiki/Markdown Markdown /home/liz/Documentos/md.links/LIM009-fe-md-links/prueba/prueba1/README.md ok 200`;
+      const newString1 = `https://nodejs.org/es/123456789 Node.js ${path.join(process.cwd(), 'prueba','README.md')} fail 404\nhttps://developers.google.com/v8/ motor de JavaScript V8 de Chrome ${path.join(process.cwd(), 'prueba','README.md')} ok 200\nhttps://es.wikipedia.org/wiki/Markdown Markdown ${path.join(process.cwd(), 'prueba','prueba1','README.md')} ok 200`;
     expect(result).toEqual(newString1) 
     done();
     })

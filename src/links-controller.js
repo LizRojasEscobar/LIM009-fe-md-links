@@ -2,7 +2,7 @@ import { readFileInside } from "./directory-controller.js";
 import marked from "marked";
 import  fetch from 'node-fetch';
 
-
+// función que obtiene links
 export const markdownLinkExtractor = route => {
   let arrayWithlinks = [];
   readFileInside(route).forEach(element => {
@@ -24,7 +24,7 @@ export const markdownLinkExtractor = route => {
 //console.log(markdownLinkExtractor('/home/liz/Documentos/md.links/LIM009-fe-md-links/prueba'));
 
 
-
+// función que obtiene estado de los links
 export const getStatusOfLInk = (array)=>{
   const responsePromises = array.map(obj =>{
   return  fetch(obj.href)
@@ -36,7 +36,12 @@ export const getStatusOfLInk = (array)=>{
           obj.ok ='fail';
          }
       return obj
-    })
+    }).catch((error) =>{
+      obj.status = 'no existe link';
+      obj.ok= 'fail' 
+      return obj
+    }         
+    )
     
   })
 return Promise.all(responsePromises);
